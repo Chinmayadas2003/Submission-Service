@@ -1,10 +1,15 @@
-const testService = require('../services/testService');
+// const testService = require('../services/testService');
 
 async function pingRequest(req,res) {
-    const response= await testService.pingCheck();
+    console.log(this.testService);
+    const response= await this.testService.pingCheck();
     return res.send({data:response});
 }
-
+//can access service directly in controllers like we have done using this keyword 
+//this- is a fastify instance which can access through routes since we have decorated  api the function in serviceplugin.js
+/*
+the decorate API, which allows you to attach properties or functions to the Fastify instance
+*/
 module.exports=pingRequest;
 /*
 ### Explanation:
