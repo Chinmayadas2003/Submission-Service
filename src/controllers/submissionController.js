@@ -1,16 +1,25 @@
-async function createSubmission(req,res){
+async function pingRequest(req, res) {
 
+    console.log(this.testService);
+
+    const response = await this.testService.pingCheck();
+    return res.send({data: response});
+}
+
+// TODO: Add validastion layer
+async function createSubmission(req, res) {
+    console.log(req.body);
     const response = await this.submissionService.addSubmission(req.body);
-    return res.status(201).json({
+    return res.status(201).send({
         error: {},
-        success: true,
-        message: 'Created submission successfully',
         data: response,
-        
-    });
-    
+        success: true,
+        message: 'Created submission successfully'
+    })
+
 }
-//add validation layer for this
-module.exports={
+
+module.exports =  {
+    pingRequest,
     createSubmission
-}
+};

@@ -16,12 +16,12 @@ fastify.get('/', function handler (request, reply) {
 })
 
 // Run the server!
-fastify.listen({ port: serverConfig.PORT }, async(err) => {
+fastify.listen({ port: serverConfig.PORT }, async (err) => {
   if (err) {
-    fastify.log.error(err)
+    fastify.log.error(err);
     process.exit(1)
   }
   await connectToDB();
-  console.log("server started")
-})
+  console.log(`Server up at port ${serverConfig.PORT}`);
+});
 //fastify is building its own ecosystem.

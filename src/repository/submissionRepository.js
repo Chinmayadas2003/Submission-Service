@@ -1,14 +1,15 @@
-const Submission= require('../models/submissionModel');
+const { createSubmission } = require('../controllers/submissionController');
+const Submission = require('../models/submissionModel');
 
 class SubmissionRepository {
-    constructor(){
-        this.SubmissionModel= Submission;//intilaize this.Submision model to submission 
+    constructor() {
+        this.submissionModel = Submission;
     }
 
-    async createSubmission(submission){
-        const response= await this.SubmissionModel.create(submission);
+    async createSubmission(submission) {
+        const response = await this.submissionModel.create(submission);
         return response;
     }
 }
 
-module.exports= SubmissionRepository;
+module.exports = SubmissionRepository;
