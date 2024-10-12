@@ -3,7 +3,7 @@ const { ATLAS_DB_URL, NODE_ENV } = require('./serverConfig');
 
 async function connectToDB(){
     try {
-        console.log(ATLAS_DB_URL);
+        //console.log(ATLAS_DB_URL);
         if(NODE_ENV=="development"){
             await mongoose.connect(ATLAS_DB_URL);
             console.log("MONGO DB connected");

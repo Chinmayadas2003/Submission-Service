@@ -8,4 +8,5 @@ module.exports = {
   NODE_ENV: process.env.NODE_ENV,
   REDIS_PORT: parseInt(process.env.REDIS_PORT || "6379", 10),
   REDIS_HOST: process.env.REDIS_HOST || "127.0.0.1",
+  PROBLEM_ADMIN_SERVICE_URL: process.env.PROBLEM_ADMIN_SERVICE
 };
